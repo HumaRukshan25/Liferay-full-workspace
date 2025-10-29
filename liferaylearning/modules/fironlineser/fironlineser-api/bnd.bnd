@@ -1,0 +1,10 @@
+Bundle-Name: fironlineser-api
+Bundle-SymbolicName: fironlineser.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	fironlineser.exception,\
+	fironlineser.model,\
+	fironlineser.service,\
+	fironlineser.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../fironlineser-service/service.xml

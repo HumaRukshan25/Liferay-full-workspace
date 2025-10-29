@@ -1,0 +1,12 @@
+dependencies {
+	api project(":modules:CoursesService:CoursesService-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+}
+
+buildService {
+	apiDir = "../CoursesService-api/src/main/java"
+	testDir = "../CoursesService-test/src/testIntegration/java"
+}
+
+group = "com.ats.courses"

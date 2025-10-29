@@ -1,0 +1,7 @@
+Bundle-Name: PracticeProject1
+Bundle-SymbolicName: PracticeProject1
+Bundle-Version: 1.0.0
+Export-Package: PracticeProject1.constants
+Provide-Capability:\
+	liferay.language.resources;\
+		resource.bundle.base.name="content.Language"

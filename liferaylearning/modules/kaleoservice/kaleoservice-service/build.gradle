@@ -1,0 +1,12 @@
+dependencies {
+	api project(":modules:kaleoservice:kaleoservice-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+}
+
+buildService {
+	apiDir = "../kaleoservice-api/src/main/java"
+	testDir = "../kaleoservice-test/src/testIntegration/java"
+}
+
+group = "kaleoservice"

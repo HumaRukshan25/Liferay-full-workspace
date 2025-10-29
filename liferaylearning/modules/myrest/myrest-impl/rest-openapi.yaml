@@ -1,0 +1,223 @@
+openapi: 3.0.1
+info:
+  description: "FIRRR REST API"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+  title: "FIRRR"
+  version: "v1.0"
+paths:
+  # Get ALL FIRRR records
+  "/get-firrr":
+    get:
+      operationId: getFIRRR
+      tags: ["FIRRR"]
+      description: Get all FIRRR records
+      summary: "Get all FIRRR"
+      responses:
+        '200':
+          description: FIRRR listed successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FIRRR"
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FIRRR"
+        '403':
+          description: No FIRRR were found
+        '404':
+          description: API not found
+
+  # Get FIRRR by ID
+  "/get-firrr/{firId}":
+    get:
+      operationId: getFIRRRById
+      tags: ["FIRRR"]
+      description: Get FIRRR by ID
+      summary: "Get FIRRR by ID"
+      parameters:
+        - in: path
+          name: firId
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: FIRRR retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FIRRR"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/FIRRR"
+        '404':
+          description: FIRRR not found
+
+  "/add-firrr":
+    post:
+      operationId: addFIRRR
+      tags: ["FIRRR"]
+      description: add FIRRR
+      summary: "add FIRRR"
+      requestBody:
+        description: add FIRRR
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FIRRR"
+          application/xml:
+            schema:
+              $ref: "#/components/schemas/FIRRR"
+      responses:
+        '200':
+          description: FIRRR added successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FIRRR"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/FIRRR"
+        '403':
+          description: No FIRRR were found
+        '404':
+          description: API not found
+
+  "/update-firrr":
+    put:
+      operationId: updateFIRRR
+      tags: ["FIRRR"]
+      description: update FIRRR
+      summary: "update FIRRR"
+      requestBody:
+        description: update FIRRR
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FIRRR"
+          application/xml:
+            schema:
+              $ref: "#/components/schemas/FIRRR"
+      responses:
+        '200':
+          description: FIRRR updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FIRRR"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/FIRRR"
+        '403':
+          description: No FIRRR were found
+        '404':
+          description: API not found
+
+    # COMMENT OUT THIS DUPLICATE DELETE ENDPOINT (query parameter version)
+  # "/delete-firrr":
+  #   delete:
+  #     parameters:
+  #       - in: query
+  #         name: firId
+  #         required: true
+  #         schema:
+  #           type: integer
+  #           format: int64
+  #     operationId: deleteFIRRR
+  #     tags: ["FIRRR"]
+  #     description: Delete FIRRR by ID
+  #     summary: "Delete FIRRR by ID"
+  #     responses:
+  #       '200':
+  #         description: FIRRR deleted successfully
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: "#/components/schemas/FIRRR"
+  #           application/xml:
+  #             schema:
+  #               $ref: "#/components/schemas/FIRRR"
+  #       '403':
+  #         description: No FIRRR were found
+  #       '404':
+  #         description: API not found
+
+  # Alternative Delete FIRRR by ID (using path parameter)
+  "/delete-firrr/{firId}":
+    delete:
+      operationId: deleteFIRRRById
+      tags: ["FIRRR"]
+      description: Delete FIRRR by ID
+      summary: "Delete FIRRR by ID"
+      parameters:
+        - in: path
+          name: firId
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: FIRRR deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FIRRR"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/FIRRR"
+        '404':
+          description: FIRRR not found
+
+components:
+  schemas:
+    FIRRR:
+      description: Represent FIRRR entity APIs.
+      properties:
+        firId:
+          type: integer
+          format: int64
+        complainantName:
+          type: string
+        incidentDate:
+          type: string
+          format: date
+        incidentDetails:
+          type: string
+        incidentLocation:
+          type: string
+        status:
+          type: string
+        timeline:
+          type: string
+        modificationDetails:
+          type: string
+        assignedInspector:
+          type: string
+        proofFileName:
+          type: string
+        proofFilePath:
+          type: string
+        userId:
+          type: integer
+          format: int64
+        createDate:
+          type: string
+          format: date-time
+        modifiedDate:
+          type: string
+          format: date-time
+        message:
+          type: string
+        data:
+          type: object
+      type: object

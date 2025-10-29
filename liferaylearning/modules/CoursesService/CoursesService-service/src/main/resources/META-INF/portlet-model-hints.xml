@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.ats.courses.model.Courses">
+		<field name="uuid" type="String" />
+		<field name="coursesId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="Courses_img" type="String">
+			<hint name="max-length">65535</hint>
+		</field>
+		<field name="Courses_name" type="String" />
+		<field name="Courses_des" type="String" />
+		<field name="Courses_type" type="String" />
+		<field name="Courses_rating" type="String" />
+		<field name="status" type="int" />
+	</model>
+</model-hints>

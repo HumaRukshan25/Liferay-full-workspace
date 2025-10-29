@@ -1,0 +1,10 @@
+Bundle-Name: PracticeService1-api
+Bundle-SymbolicName: PracticeService1.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	PracticeService1.exception,\
+	PracticeService1.model,\
+	PracticeService1.service,\
+	PracticeService1.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../PracticeService1-service/service.xml

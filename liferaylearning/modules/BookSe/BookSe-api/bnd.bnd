@@ -1,0 +1,14 @@
+Bundle-Name: BookSe-api
+Bundle-SymbolicName: com.ats.books.api
+Bundle-Version: 1.0.0
+
+Export-Package: \
+    com.ats.books.exception, \
+    com.ats.books.model, \
+    com.ats.books.service, \
+    com.ats.books.service.persistence
+
+Liferay-Require-SchemaVersion: 1.0.0
+Liferay-Service: true
+
+-includeresource: META-INF/service.xml=../BookSe-service/service.xml

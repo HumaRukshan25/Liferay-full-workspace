@@ -1,0 +1,44 @@
+package OnlineFIR.police;
+
+import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
+import com.liferay.portal.kernel.util.ParamUtil;
+
+import javax.portlet.ActionRequest;
+import javax.portlet.ActionResponse;
+
+import org.osgi.service.component.annotations.Component;
+
+import fironlineser.model.FIRRR;
+import fironlineser.service.FIRRRLocalServiceUtil;
+import OnlineFIR.constants.OnlineFIRPortletKeys;
+
+@Component(
+    immediate = true,
+    property = {
+        "javax.portlet.name=" + OnlineFIRPortletKeys.ONLINEFIR,
+        "mvc.command.name=/police/rejectFIR"
+    },
+    service = MVCActionCommand.class
+)
+public class RejectFIRActionCommand implements MVCActionCommand {
+
+    @Override
+    public boolean processAction(ActionRequest actionRequest, ActionResponse actionResponse) {
+
+        long firId = ParamUtil.getLong(actionRequest, "firId");
+
+        try {
+            FIRRR fir = FIRRRLocalServiceUtil.getFIRRR(firId);
+            fir.setStatus("Rejected");
+            fir.setModificationDetails("FIR rejected by officer");
+            FIRRRLocalServiceUtil.updateFIRRR(fir);
+            
+            // ✅ Redirect back to the same render page
+            actionResponse.setRenderParameter("mvcRenderCommandName", "/police/viewAssignedFIRs");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return true;
+    }
+}

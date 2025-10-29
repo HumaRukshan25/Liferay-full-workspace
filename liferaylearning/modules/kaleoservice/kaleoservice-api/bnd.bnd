@@ -1,0 +1,10 @@
+Bundle-Name: kaleoservice-api
+Bundle-SymbolicName: kaleoservice.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	kaleoservice.exception,\
+	kaleoservice.model,\
+	kaleoservice.service,\
+	kaleoservice.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../kaleoservice-service/service.xml

@@ -1,0 +1,12 @@
+dependencies {
+	api project(":modules:CustomLoginService:CustomLoginService-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+}
+
+buildService {
+	apiDir = "../CustomLoginService-api/src/main/java"
+	testDir = "../CustomLoginService-test/src/testIntegration/java"
+}
+
+group = "com.custom.login.service"

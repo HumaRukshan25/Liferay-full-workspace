@@ -1,0 +1,6 @@
+Bundle-Name: myrest-api
+Bundle-SymbolicName: myrest.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	myrest.dto.v1_0,\
+	myrest.resource.v1_0

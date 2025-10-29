@@ -1,0 +1,12 @@
+Bundle-Name: Book Management
+Bundle-SymbolicName: com.ats.BookManagement
+Bundle-Version: 1.0.0
+Export-Package: com.ats.BookManagement.constants
+Liferay-Resource-Bundle: content.Language
+-dsannotations-options: inherit
+Liferay-JSP-Precompile: true
+
+
+
+
+Import-Package: *;resolution:=optional

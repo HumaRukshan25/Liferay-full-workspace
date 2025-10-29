@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="fironlineser">
+	<namespace>FIRFOO</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+	<entity local-service="true" name="Foo" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="fooId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="field1" type="String" />
+		<column name="field2" type="boolean" />
+		<column name="field3" type="int" />
+		<column name="field4" type="Date" />
+		<column name="field5" type="String" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="field1" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="Field2" return-type="Collection">
+			<finder-column name="field2" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+	</entity>
+	
+	
+	
+	
+	<entity local-service="true" name="SignupUser" remote-service="false" uuid="true">
+
+    <column name="signupUserId" primary="true" type="long" />
+
+    <!-- Liferay auto adds: uuid_, companyId, userId, userName, createDate, modifiedDate -->
+
+    <!-- Custom fields -->
+    <column name="loginName" type="String" />
+    <column name="firstName" type="String" />
+    <column name="lastName" type="String" />
+    <column name="email" type="String" />
+    <column name="phoneNo" type="String" />
+    <column name="password_" type="String" />
+    <column name="role" type="String" /> <!-- Citizen, Police, Admin -->
+
+    <!-- New fields for activation -->
+    <column name="active" type="boolean" /> <!-- true if account is activated -->
+    <column name="activationToken" type="String" /> <!-- random UUID for activation -->
+
+    <!-- Finders -->
+    <finder name="Email" return-type="Collection">
+        <finder-column name="email" />
+    </finder>
+
+    <!-- Finder for activation token -->
+    <finder name="ActivationToken" return-type="Collection">
+        <finder-column name="activationToken" />
+    </finder>
+
+</entity>
+	
+<entity name="FIRRR" local-service="true" remote-service="false" uuid="true">
+
+        <!-- Primary Key -->
+        <column name="firId" type="long" primary="true" />
+
+        <!-- FIR Details -->
+        <column name="complainantName" type="String" />
+        <column name="incidentDate" type="Date" />
+        <column name="incidentDetails" type="String" />
+         <column name="incidentLocation" type="String" /> <!-- ✅ Added field -->
+        <column name="status" type="String" />
+        <column name="timeline" type="String" />
+   
+        <column name="modificationDetails" type="String" />
+        <column name="assignedInspector" type="String" />
+        
+        
+         <!-- Document Upload -->
+    <column name="proofFileName" type="String" /> <!-- Stores the file name -->
+    <column name="proofFilePath" type="String" /> <!-- Stores the server path -->
+
+        <!-- Audit Fields -->
+        <column name="userId" type="long" />
+        <column name="createDate" type="Date" />
+        <column name="modifiedDate" type="Date" />
+
+        <!-- Finder for fetching FIRs by User -->
+        
+        <finder name="UserId" return-type="Collection">
+            <finder-column name="userId" />
+        </finder>
+
+    </entity>
+    
+    
+    
+    
+    <!-- ✅ NEW ENTITY: Police Station Management -->
+    <entity name="PoliceStation" local-service="true" remote-service="false" uuid="true">
+        <!-- Primary Key -->
+        <column name="stationId" primary="true" type="long" />
+
+        <!-- Basic Details -->
+        <column name="stationName" type="String" />
+        <column name="address" type="String" />
+        <column name="jurisdictionArea" type="String" />
+
+        <!-- Management Fields -->
+        <column name="officerInCharge" type="String" /> <!-- optional -->
+        <column name="contactNumber" type="String" />
+        <column name="email" type="String" />
+        <column name="status" type="String" /> <!-- Active / Inactive -->
+
+        <!-- Audit Fields -->
+        <column name="userId" type="long" />
+        <column name="userName" type="String" />
+        <column name="createDate" type="Date" />
+        <column name="modifiedDate" type="Date" />
+
+        <!-- Finder Methods -->
+        <finder name="Jurisdiction" return-type="Collection">
+            <finder-column name="jurisdictionArea" />
+        </finder>
+
+        <finder name="StationName" return-type="Collection">
+            <finder-column name="stationName" />
+        </finder>
+    </entity>
+	
+</service-builder>

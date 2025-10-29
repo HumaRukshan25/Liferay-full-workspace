@@ -1,0 +1,8 @@
+Bundle-Name: myfirstproject
+Bundle-SymbolicName: com.lib.myfirst
+Bundle-Version: 1.0.0
+Export-Package: com.lib.myfirst.constants
+Provide-Capability:\
+	liferay.language.resources;\
+		resource.bundle.base.name="content.Language"
+

@@ -1,0 +1,1 @@
+create unique index IX_E523E1FD on ATS_CheckInOutApp (uuid_[$COLUMN_LENGTH:75$], groupId);

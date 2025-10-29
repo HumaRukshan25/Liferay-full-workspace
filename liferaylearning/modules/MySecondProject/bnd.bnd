@@ -1,0 +1,7 @@
+Bundle-Name: MySecondProject
+Bundle-SymbolicName: com.ats.MySecondProject
+Bundle-Version: 1.0.0
+Export-Package: com.ats.MySecondProject.constants
+Provide-Capability:\
+	liferay.language.resources;\
+		resource.bundle.base.name="content.Language"

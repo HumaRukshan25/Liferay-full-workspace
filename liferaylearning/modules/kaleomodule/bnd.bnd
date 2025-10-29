@@ -1,0 +1,7 @@
+Bundle-Name: kaleomodule
+Bundle-SymbolicName: kaleomodule
+Bundle-Version: 1.0.0
+Export-Package: kaleomodule.constants
+Provide-Capability:\
+	liferay.language.resources;\
+		resource.bundle.base.name="content.Language"

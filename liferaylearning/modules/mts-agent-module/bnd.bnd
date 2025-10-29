@@ -1,0 +1,4 @@
+Bundle-Name: mts-agent-module
+Bundle-SymbolicName: com.mts.agent.mvc
+Bundle-Version: 1.0.0
+Export-Package: com.mts.agent.mvc.constants

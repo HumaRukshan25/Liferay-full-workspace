@@ -1,0 +1,7 @@
+Bundle-Name: OnlinrFIRcitizen
+Bundle-SymbolicName: OnlinrFIRcitizen
+Bundle-Version: 1.0.0
+Export-Package: OnlinrFIRcitizen.constants
+Provide-Capability:\
+	liferay.language.resources;\
+		resource.bundle.base.name="content.Language"

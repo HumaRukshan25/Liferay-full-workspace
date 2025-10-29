@@ -1,0 +1,16 @@
+dependencies {
+	api project(":modules:BookSe:BookSe-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+	
+ 
+
+}
+
+
+buildService {
+	apiDir = "../BookSe-api/src/main/java"
+	testDir = "../BookSe-test/src/testIntegration/java"
+}
+
+group = "com.ats.books"

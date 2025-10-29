@@ -1,0 +1,10 @@
+Bundle-Name: CustomLoginService-api
+Bundle-SymbolicName: com.custom.login.service.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.custom.login.service.exception,\
+	com.custom.login.service.model,\
+	com.custom.login.service.service,\
+	com.custom.login.service.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../CustomLoginService-service/service.xml

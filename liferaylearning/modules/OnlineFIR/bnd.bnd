@@ -1,0 +1,10 @@
+Bundle-Name: OnlineFIR
+Bundle-SymbolicName: OnlineFIR
+Bundle-Version: 1.0.0
+Export-Package: OnlineFIR.constants
+Provide-Capability:\
+	liferay.language.resources;\
+		resource.bundle.base.name="content.Language"
+		
+		
+		

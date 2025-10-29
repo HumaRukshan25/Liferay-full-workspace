@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.ats.books.model.Author">
+		<field name="authorId" type="long" />
+		<field name="liferayUserId" type="long" />
+	</model>
+	<model name="com.ats.books.model.BookCategory">
+		<field name="uuid" type="String" />
+		<field name="categoryId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="categoryName" type="String" />
+		<field name="bookId" type="long" />
+	</model>
+	<model name="com.ats.books.model.Books">
+		<field name="uuid" type="String" />
+		<field name="bookId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="title" type="String" />
+		<field name="author" type="String" />
+		<field name="publishDate" type="Date" />
+		<field name="categoryId" type="long" />
+	</model>
+	<model name="com.ats.books.model.Foo">
+		<field name="uuid" type="String" />
+		<field name="fooId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+</model-hints>

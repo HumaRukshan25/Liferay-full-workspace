@@ -1,0 +1,10 @@
+Bundle-Name: CoursesService-api
+Bundle-SymbolicName: com.ats.courses.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.ats.courses.exception,\
+	com.ats.courses.model,\
+	com.ats.courses.service,\
+	com.ats.courses.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../CoursesService-service/service.xml

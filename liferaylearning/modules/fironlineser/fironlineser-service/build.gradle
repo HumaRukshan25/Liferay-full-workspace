@@ -1,0 +1,12 @@
+dependencies {
+	api project(":modules:fironlineser:fironlineser-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+}
+
+buildService {
+	apiDir = "../fironlineser-api/src/main/java"
+	testDir = "../fironlineser-test/src/testIntegration/java"
+}
+
+group = "fironlineser"

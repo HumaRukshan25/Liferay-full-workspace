@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN"
+    "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="PracticeService1">
+    <namespace>ATS</namespace>
+
+    <!-- UserProfile Entity -->
+    <entity name="UserProfile" local-service="true" remote-service="false">
+        <column name="userId" primary="true" type="long" />
+        <column name="userName" type="String" />
+        <column name="password" type="String" />
+    </entity>
+
+    <!-- CheckInOutApp Entity -->
+    <entity name="CheckInOutApp" local-service="true" remote-service="false" uuid="true">
+
+        <!-- Primary Key -->
+        <column name="logId" primary="true" type="long" />
+
+        <!-- Group / Company / Audit Info -->
+        <column name="groupId" type="long" />
+        <column name="companyId" type="long" />
+        <column name="userId" type="long" />
+        <column name="userName" type="String" />
+        <column name="createDate" type="Date" />
+        <column name="modifiedDate" type="Date" />
+
+        <!-- Business Fields -->
+        <column name="checkInTime" type="Date" />
+        <column name="checkOutTime" type="Date" />
+
+        <!-- Optional Fields -->
+        <column name="remarks" type="String" />
+        <column name="location" type="String" />
+
+        <!-- Order by checkInTime descending -->
+        <order by="desc">
+            <order-column name="checkInTime" />
+        </order>
+    </entity>
+</service-builder>

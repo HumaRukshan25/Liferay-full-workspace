@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="fironlineser.model.FIRRR">
+		<field name="uuid" type="String" />
+		<field name="firId" type="long" />
+		<field name="complainantName" type="String" />
+		<field name="incidentDate" type="Date" />
+		<field name="incidentDetails" type="String" />
+		<field name="incidentLocation" type="String" />
+		<field name="status" type="String" />
+		<field name="timeline" type="String" />
+		<field name="modificationDetails" type="String" />
+		<field name="assignedInspector" type="String" />
+		<field name="proofFileName" type="String" />
+		<field name="proofFilePath" type="String" />
+		<field name="userId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="fironlineser.model.Foo">
+		<field name="uuid" type="String" />
+		<field name="fooId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="field1" type="String" />
+		<field name="field2" type="boolean" />
+		<field name="field3" type="int" />
+		<field name="field4" type="Date" />
+		<field name="field5" type="String" />
+	</model>
+	<model name="fironlineser.model.PoliceStation">
+		<field name="uuid" type="String" />
+		<field name="stationId" type="long" />
+		<field name="stationName" type="String" />
+		<field name="address" type="String" />
+		<field name="jurisdictionArea" type="String" />
+		<field name="officerInCharge" type="String" />
+		<field name="contactNumber" type="String" />
+		<field name="email" type="String" />
+		<field name="status" type="String" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="fironlineser.model.SignupUser">
+		<field name="uuid" type="String" />
+		<field name="signupUserId" type="long" />
+		<field name="loginName" type="String" />
+		<field name="firstName" type="String" />
+		<field name="lastName" type="String" />
+		<field name="email" type="String" />
+		<field name="phoneNo" type="String" />
+		<field name="password_" type="String" />
+		<field name="role" type="String" />
+		<field name="active" type="boolean" />
+		<field name="activationToken" type="String" />
+	</model>
+</model-hints>

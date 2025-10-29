@@ -1,0 +1,10 @@
+subprojects {
+	configurations.all {
+	resolutionStrategy.force 'com.liferay:com.liferay.portal.vulcan.api:9.3.1'
+	}
+}
+
+//buildRest deploy api then service
+
+//To view Swagger UI for a Liferay REST API using REST Builder, use exactly this URL format:
+// http://localhost:8080/o/api?endpoint=http://localhost:8080/o/myrest/v1.0/openapi.json

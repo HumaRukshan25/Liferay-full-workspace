@@ -1,0 +1,7 @@
+apiDir: "../myrest-api/src/main/java"
+apiPackagePath: "myrest"
+application:
+    baseURI: "/myrest"
+    className: "MyrestApplication"
+    name: "Myrest"
+author: "Sania Mir"

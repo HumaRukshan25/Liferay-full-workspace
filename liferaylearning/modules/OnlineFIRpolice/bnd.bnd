@@ -1,0 +1,7 @@
+Bundle-Name: OnlineFIRpolice
+Bundle-SymbolicName: OnlineFIRpolice
+Bundle-Version: 1.0.0
+Export-Package: OnlineFIRpolice.constants
+Provide-Capability:\
+	liferay.language.resources;\
+		resource.bundle.base.name="content.Language"

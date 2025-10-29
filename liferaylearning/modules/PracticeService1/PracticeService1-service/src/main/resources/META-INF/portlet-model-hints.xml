@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="PracticeService1.model.CheckInOutApp">
+		<field name="uuid" type="String" />
+		<field name="logId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="checkInTime" type="Date" />
+		<field name="checkOutTime" type="Date" />
+		<field name="remarks" type="String" />
+		<field name="location" type="String" />
+	</model>
+	<model name="PracticeService1.model.UserProfile">
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="password" type="String" />
+	</model>
+</model-hints>

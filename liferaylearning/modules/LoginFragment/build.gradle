@@ -1,0 +1,5 @@
+dependencies {
+    compileOnly group: "com.liferay.portal", name: "release.portal.api", version: "7.4.3.120-ga120"
+    
+    compileOnly group: "javax.mail", name:"mail", version:"1.4.7"
+}
