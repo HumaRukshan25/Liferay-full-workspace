@@ -1,0 +1,14 @@
+dependencies {
+	api project(":modules:Flightheadlessapirest:Flightheadlessapirest-api")
+	compileOnly project(":modules:FlightMgmtSystemService:FlightMgmtSystemService-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+	compileOnly group: "javax.annotation", name: "javax.annotation-api", version: "1.3.2"
+	compileOnly group: "com.liferay", name: "com.liferay.portal.vulcan.api"
+	
+	// Try different REST Builder versions
+	restBuilder group: "com.liferay", name: "com.liferay.portal.tools.rest.builder", version: "1.0.60"
+
+}
+
+group = "Flightheadlessapirest"

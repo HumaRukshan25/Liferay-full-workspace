@@ -177,6 +177,84 @@ paths:
                 $ref: "#/components/schemas/FIRRR"
         '404':
           description: FIRRR not found
+          
+          #PartialUpdateFIRRR(PATCH)
+"/update-firrr/{firId}":
+  patch:
+    operationId: patchFIRRR
+    tags: ["FIRRR"]
+    description: Partially update FIRRR - update only provided fields
+    summary: "Partially update FIRRR"
+    parameters:
+      - in: path
+        name: firId
+        required: true
+        schema:
+          type: integer
+          format: int64
+    requestBody:
+      description: Partial FIRRR object with only fields to update
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/FIRRR"
+        application/xml:
+          schema:
+            $ref: "#/components/schemas/FIRRR"
+    responses:
+      '200':
+        description: FIRRR partially updated successfully
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FIRRR"
+          application/xml:
+            schema:
+              $ref: "#/components/schemas/FIRRR"
+      '404':
+        description: FIRRR not found
+
+#BatchDeleteFIRRR
+"/delete-firrr/batch":
+  delete:
+    parameters:
+      - in: query
+        name: callbackURL
+        required: false
+        schema:
+          type: string
+    operationId: deleteFIRRRBatch
+    tags: ["FIRRR"]
+    description: Batch delete FIRRR records
+    summary: "Batch delete FIRRR"
+    requestBody:
+      description: Array of FIR IDs or FIR objects to delete
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+    responses:
+      '202':
+        description: Batch delete accepted
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                successCount:
+                  type: integer
+                errorCount:
+                  type: integer
+                totalProcessed:
+                  type: integer
+                status:
+                  type: string
+      '400':
+        description: Invalid batch delete request
+      '500':
+        description: Batch delete failed
 
 components:
   schemas:

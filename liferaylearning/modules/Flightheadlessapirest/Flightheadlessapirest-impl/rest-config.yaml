@@ -1,0 +1,7 @@
+apiDir: "../Flightheadlessapirest-api/src/main/java"
+apiPackagePath: "Flightheadlessapirest"
+application:
+    baseURI: "/Flightheadlessapirest"
+    className: "FlightheadlessapirestApplication"
+    name: "Flightheadlessapirest"
+author: "Sania Mir"

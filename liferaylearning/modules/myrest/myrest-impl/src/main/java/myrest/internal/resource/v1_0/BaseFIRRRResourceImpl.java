@@ -25,7 +25,7 @@ import com.liferay.portal.vulcan.util.ActionUtil;
 import com.liferay.portal.vulcan.util.TransformUtil;
 
 import java.io.Serializable;
-
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
@@ -38,6 +38,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import javax.ws.rs.core.MultivaluedHashMap;
 import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 import myrest.dto.v1_0.FIRRR;
@@ -169,6 +170,216 @@ public abstract class BaseFIRRRResourceImpl
 		throws Exception {
 
 		return new FIRRR();
+	}
+	
+	
+	/**
+	 * Invoke this method with the command line:
+	 *
+	 * curl -X 'PATCH' 'http://localhost:8080/o/myrest/v1.0/update-firrr/{firId}' -d $'{"assignedInspector": ___, "complainantName": ___, "status": ___}' --header 'Content-Type: application/json' -u 'test@liferay.com:test'
+	 */
+	@io.swagger.v3.oas.annotations.Operation(description = "Partially update FIRRR")
+	@io.swagger.v3.oas.annotations.Parameters(
+		value = {
+			@io.swagger.v3.oas.annotations.Parameter(
+				in = io.swagger.v3.oas.annotations.enums.ParameterIn.PATH,
+				name = "firId"
+			)
+		}
+	)
+	@io.swagger.v3.oas.annotations.tags.Tags(
+		value = {@io.swagger.v3.oas.annotations.tags.Tag(name = "FIRRR")}
+	)
+	@javax.ws.rs.Consumes({"application/json", "application/xml"})
+	@javax.ws.rs.Path("/update-firrr/{firId}")
+	@javax.ws.rs.Produces({"application/json", "application/xml"})
+	@javax.ws.rs.PATCH
+	public FIRRR patchFIRRR(
+			@io.swagger.v3.oas.annotations.Parameter(hidden = true)
+			@javax.validation.constraints.NotNull
+			@javax.ws.rs.PathParam("firId")
+			Long firId,
+			FIRRR firrr)
+		throws Exception {
+
+		return new FIRRR();
+	}
+
+//	/**
+//	 * Invoke this method with the command line:
+//	 *
+//	 * curl -X 'DELETE' 'http://localhost:8080/o/myrest/v1.0/delete-firrr/batch'  -u 'test@liferay.com:test'
+//	 */
+//	@io.swagger.v3.oas.annotations.Parameters(
+//		value = {
+//			@io.swagger.v3.oas.annotations.Parameter(
+//				in = io.swagger.v3.oas.annotations.enums.ParameterIn.QUERY,
+//				name = "callbackURL"
+//			)
+//		}
+//	)
+//	@io.swagger.v3.oas.annotations.tags.Tags(
+//		value = {@io.swagger.v3.oas.annotations.tags.Tag(name = "FIRRR")}
+//	)
+//	@javax.ws.rs.Consumes("application/json")
+//	@javax.ws.rs.DELETE
+//	@javax.ws.rs.Path("/delete-firrr/batch")
+//	@javax.ws.rs.Produces("application/json")
+//	@Override
+//	public Response deleteFIRRRBatch(
+//			@io.swagger.v3.oas.annotations.Parameter(hidden = true)
+//			@javax.ws.rs.QueryParam("callbackURL")
+//			String callbackURL,
+//			Object object)
+//		throws Exception {
+//
+//		return Response.accepted().build();
+//	}
+	
+	
+	/**
+	 * Invoke this method with the command line:
+	 *
+	 * curl -X 'DELETE' 'http://localhost:8080/o/myrest/v1.0/delete-firrr/batch'  -u 'test@liferay.com:test'
+	 */
+	@io.swagger.v3.oas.annotations.Parameters(
+	    value = {
+	        @io.swagger.v3.oas.annotations.Parameter(
+	            in = io.swagger.v3.oas.annotations.enums.ParameterIn.QUERY,
+	            name = "callbackURL"
+	        )
+	    }
+	)
+	@io.swagger.v3.oas.annotations.tags.Tags(
+	    value = {@io.swagger.v3.oas.annotations.tags.Tag(name = "FIRRR")}
+	)
+	@javax.ws.rs.Consumes("application/json")
+	@javax.ws.rs.DELETE
+	@javax.ws.rs.Path("/delete-firrr/batch")
+	@javax.ws.rs.Produces("application/json")
+	public Response deleteFIRRRBatch(
+	        @io.swagger.v3.oas.annotations.Parameter(hidden = true)
+	        @javax.ws.rs.QueryParam("callbackURL")
+	        String callbackURL,
+	        Object object)
+	    throws Exception {
+
+	    // COMPLETELY BYPASS VULCAN BATCH ENGINE - Use manual implementation only
+	    return _simpleBatchDelete(object);
+	}
+
+	// Simple batch deletion that completely bypasses Vulcan
+	private Response _simpleBatchDelete(Object object) {
+	    try {
+	        System.out.println("=== BATCH DELETE STARTED ===");
+	        System.out.println("Received object type: " + (object != null ? object.getClass().getName() : "null"));
+	        System.out.println("Received object: " + object);
+	        
+	        // Initialize counters
+	        int successCount = 0;
+	        int errorCount = 0;
+	        List<String> errors = new ArrayList<>();
+	        List<Long> processedIds = new ArrayList<>();
+
+	        // Check if object is a collection
+	        if (object instanceof java.util.Collection) {
+	            java.util.Collection<?> collection = (java.util.Collection<?>) object;
+	            System.out.println("Processing collection with " + collection.size() + " items");
+	            
+	            for (Object item : collection) {
+	                try {
+	                    Long firId = _extractFirId(item);
+	                    
+	                    if (firId != null) {
+	                        System.out.println("Deleting FIR with ID: " + firId);
+	                        
+	                        // Delete the FIR record
+	                        fironlineser.service.FIRRRLocalServiceUtil.deleteFIRRR(firId);
+	                        successCount++;
+	                        processedIds.add(firId);
+	                        System.out.println("Successfully deleted FIR: " + firId);
+	                    } else {
+	                        errorCount++;
+	                        String errorMsg = "Invalid FIR ID format: " + item;
+	                        errors.add(errorMsg);
+	                        System.out.println(errorMsg);
+	                    }
+	                    
+	                } catch (Exception e) {
+	                    errorCount++;
+	                    String errorMsg = "Failed to delete FIR: " + item + " - " + e.getMessage();
+	                    errors.add(errorMsg);
+	                    System.out.println(errorMsg);
+	                    e.printStackTrace();
+	                }
+	            }
+	        } else {
+	            String errorMsg = "Invalid request format. Expected JSON array but got: " + 
+	                             (object != null ? object.getClass().getSimpleName() : "null");
+	            System.out.println(errorMsg);
+	            return Response.status(Response.Status.BAD_REQUEST)
+	                .entity("{\"message\": \"" + errorMsg + "\"}")
+	                .build();
+	        }
+	        
+	        // Create success response
+	        java.util.Map<String, Object> response = new java.util.HashMap<>();
+	        response.put("success", true);
+	        response.put("message", "Batch delete operation completed");
+	        response.put("successCount", successCount);
+	        response.put("errorCount", errorCount);
+	        response.put("totalProcessed", successCount + errorCount);
+	        response.put("processedIds", processedIds);
+	        response.put("status", "completed");
+	        
+	        if (!errors.isEmpty()) {
+	            response.put("errors", errors);
+	        }
+	        
+	        System.out.println("=== BATCH DELETE COMPLETED ===");
+	        System.out.println("Success: " + successCount + ", Errors: " + errorCount);
+	        
+	        return Response.ok(response).build();
+	        
+	    } catch (Exception e) {
+	        System.out.println("=== BATCH DELETE FAILED ===");
+	        e.printStackTrace();
+	        
+	        return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+	            .entity("{\"message\": \"Batch delete operation failed: " + e.getMessage() + "\"}")
+	            .build();
+	    }
+	}
+
+	// Helper method to extract FIR ID from different object types
+	private Long _extractFirId(Object item) {
+	    if (item == null) {
+	        return null;
+	    }
+	    
+	    try {
+	        if (item instanceof Long) {
+	            return (Long) item;
+	        } else if (item instanceof Integer) {
+	            return ((Integer) item).longValue();
+	        } else if (item instanceof String) {
+	            return Long.parseLong((String) item);
+	        } else if (item instanceof java.util.Map) {
+	            java.util.Map<?, ?> map = (java.util.Map<?, ?>) item;
+	            Object firIdObj = map.get("firId");
+	            if (firIdObj instanceof Long) {
+	                return (Long) firIdObj;
+	            } else if (firIdObj instanceof Integer) {
+	                return ((Integer) firIdObj).longValue();
+	            } else if (firIdObj instanceof String) {
+	                return Long.parseLong((String) firIdObj);
+	            }
+	        }
+	    } catch (Exception e) {
+	        System.out.println("Error extracting FIR ID from: " + item + " - " + e.getMessage());
+	    }
+	    
+	    return null;
 	}
 
 	@Override
@@ -388,8 +599,8 @@ public abstract class BaseFIRRRResourceImpl
 		T[] array, UnsafeFunction<T, R, Exception> unsafeFunction) {
 
 		return TransformUtil.transformToList(array, unsafeFunction);
-	}
-*/
+	}*/
+
 	protected AcceptLanguage contextAcceptLanguage;
 	protected com.liferay.portal.kernel.model.Company contextCompany;
 	protected HttpServletRequest contextHttpServletRequest;
@@ -408,5 +619,7 @@ public abstract class BaseFIRRRResourceImpl
 
 	private static final com.liferay.portal.kernel.log.Log _log =
 		LogFactoryUtil.getLog(BaseFIRRRResourceImpl.class);
+
+	
 
 }

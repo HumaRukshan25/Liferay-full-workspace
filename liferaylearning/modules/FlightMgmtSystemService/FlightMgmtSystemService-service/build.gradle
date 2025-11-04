@@ -1,0 +1,12 @@
+dependencies {
+	api project(":modules:FlightMgmtSystemService:FlightMgmtSystemService-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+}
+
+buildService {
+	apiDir = "../FlightMgmtSystemService-api/src/main/java"
+	testDir = "../FlightMgmtSystemService-test/src/testIntegration/java"
+}
+
+group = "FlightMgmtSystemService"

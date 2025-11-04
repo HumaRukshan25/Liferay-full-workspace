@@ -1,0 +1,7 @@
+Bundle-Name: FlightMgmtForRestajax
+Bundle-SymbolicName: FlightMgmtForRestajax
+Bundle-Version: 1.0.0
+Export-Package: FlightMgmtForRestajax.constants
+Provide-Capability:\
+	liferay.language.resources;\
+		resource.bundle.base.name="content.Language"

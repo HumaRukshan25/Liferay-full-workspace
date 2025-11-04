@@ -1,0 +1,6 @@
+Bundle-Name: Flightheadlessapirest-api
+Bundle-SymbolicName: Flightheadlessapirest.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	Flightheadlessapirest.dto.v1_0,\
+	Flightheadlessapirest.resource.v1_0

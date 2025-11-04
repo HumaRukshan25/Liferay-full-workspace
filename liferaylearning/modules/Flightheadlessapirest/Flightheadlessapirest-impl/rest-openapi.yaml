@@ -1,0 +1,166 @@
+openapi: 3.0.1
+info:
+  description: "Flightheadlessapirest REST API"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+  title: "Flightheadlessapirest"
+  version: "v1.0"
+paths:
+  /flights:
+    get:
+      operationId: getFlights
+      tags:
+        - Flight
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Flight'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Flight'
+    post:
+      operationId: postFlight
+      tags:
+        - Flight
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Flight'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Flight'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Flight'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Flight'
+  /flights/{flightId}:
+    get:
+      operationId: getFlight
+      tags:
+        - Flight
+      parameters:
+        - name: flightId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Flight'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Flight'
+    put:
+      operationId: putFlight
+      tags:
+        - Flight
+      parameters:
+        - name: flightId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Flight'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Flight'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Flight'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Flight'
+    delete:
+      operationId: deleteFlight
+      tags:
+        - Flight
+      parameters:
+        - name: flightId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Flight'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Flight'
+components:
+  schemas:
+    Flight:
+      type: object
+      properties:
+        flightId:
+          type: integer
+          format: int64
+        groupId:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        userName:
+          type: string
+        createDate:
+          type: string
+          format: date-time
+        modifiedDate:
+          type: string
+          format: date-time
+        flightNumber:
+          type: string
+        airline:
+          type: string
+        departureAirport:
+          type: string
+        arrivalAirport:
+          type: string
+        departureTime:
+          type: string
+          format: date-time
+        arrivalTime:
+          type: string
+          format: date-time
+        availableSeats:
+          type: integer
+        price:
+          type: number
+          format: double

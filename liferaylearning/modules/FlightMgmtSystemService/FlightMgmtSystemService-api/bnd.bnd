@@ -1,0 +1,10 @@
+Bundle-Name: FlightMgmtSystemService-api
+Bundle-SymbolicName: FlightMgmtSystemService.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	FlightMgmtSystemService.exception,\
+	FlightMgmtSystemService.model,\
+	FlightMgmtSystemService.service,\
+	FlightMgmtSystemService.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../FlightMgmtSystemService-service/service.xml

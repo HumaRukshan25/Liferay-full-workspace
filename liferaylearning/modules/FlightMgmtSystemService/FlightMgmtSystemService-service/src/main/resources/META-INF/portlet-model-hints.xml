@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="FlightMgmtSystemService.model.Flight">
+		<field name="uuid" type="String" />
+		<field name="flightId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="flightNumber" type="String" />
+		<field name="airline" type="String" />
+		<field name="departureAirport" type="String" />
+		<field name="arrivalAirport" type="String" />
+		<field name="departureTime" type="Date" />
+		<field name="arrivalTime" type="Date" />
+		<field name="availableSeats" type="int" />
+		<field name="price" type="double" />
+	</model>
+	<model name="FlightMgmtSystemService.model.Foo">
+		<field name="uuid" type="String" />
+		<field name="fooId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="field1" type="String" />
+		<field name="field2" type="boolean" />
+		<field name="field3" type="int" />
+		<field name="field4" type="Date" />
+		<field name="field5" type="String" />
+	</model>
+</model-hints>

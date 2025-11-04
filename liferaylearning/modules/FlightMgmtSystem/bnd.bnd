@@ -1,0 +1,7 @@
+Bundle-Name: FlightMgmtSystem
+Bundle-SymbolicName: FlightMgmtSystem
+Bundle-Version: 1.0.0
+Export-Package: FlightMgmtSystem.constants
+Provide-Capability:\
+	liferay.language.resources;\
+		resource.bundle.base.name="content.Language"
